@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản trị - SNServices</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            background: #07101f;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        .admin-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .admin-header a {
+            color: white;
+            text-decoration: none;
+            background: #263653;
+            padding: 12px 18px;
+            border-radius: 10px;
+        }
+
+        .admin-card {
+            background: #111d35;
+            border: 1px solid #263653;
+            border-radius: 18px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 15px;
+            border-bottom: 1px solid #263653;
+        }
+
+        th {
+            color: #7e9bd1;
+        }
+
+        .admin-title {
+            color: #55e6d2;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="admin-container">
+
+    <div class="admin-header">
+        <div>
+            <div class="admin-title">SNServices</div>
+            <h1>⚙️ Trang quản trị</h1>
+        </div>
+
+        <a href="/">← Về trang chủ</a>
+    </div>
+
+    <div class="admin-card">
+        <h2>👥 Danh sách tài khoản</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Mã ND</th>
+                    <th>Tên đăng nhập</th>
+                    <th>Số dư</th>
+                    <th>Vai trò</th>
+                </tr>
+            </thead>
+
+            <tbody id="userTable">
+                <tr>
+                    <td colspan="4">Đang tải dữ liệu...</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="admin-card">
+        <h2>📦 Danh sách đơn hàng</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Mã đơn</th>
+                    <th>Người dùng</th>
+                    <th>Dịch vụ</th>
+                    <th>Số lượng</th>
+                    <th>Tổng tiền</th>
+                    <th>Trạng thái</th>
+                    <th>Thao tác</th>
+                </tr>
+            </thead>
+
+            <tbody id="adminOrderTable">
+                <tr>
+                    <td colspan="7">Đang tải dữ liệu...</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<script src="admin.js"></script>
+
+</body>
+</html>

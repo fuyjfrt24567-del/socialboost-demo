@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dịch vụ MXH</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="logo">SN<span>Services</span></div>
+      <div class="user-card" id="userArea">
+
+  <div id="guestArea">
+    <a href="login.html" class="auth-btn login-btn">Đăng nhập</a>
+    <a href="register.html" class="auth-btn register-btn">Đăng ký</a>
+  </div>
+
+  <div id="loggedArea" style="display: none;">
+    <div class="avatar" id="userAvatar">H</div>
+
+    <div class="user-info">
+      <strong id="displayUsername">User</strong>
+      <small>
+        Số dư: <span id="displayBalance">0đ</span>
+      </small>
+    </div>
+
+    <button id="logoutBtn" class="logout-btn">Đăng xuất</button>
+  </div>
+
+</div>
+      <nav>
+        <a class="nav-link active" href="#home">🏠 Trang chủ</a>
+        <a class="nav-link" href="#services">🧩 Dịch vụ</a>
+        <a class="nav-link" href="#order">🛒 Tạo đơn</a>
+        <a class="nav-link" href="#history">📦 Đơn hàng</a>
+        <a class="nav-link" href="#wallet">💳 Nạp tiền</a>
+        <a class="nav-link" href="#contact">💬 Liên hệ CSKH</a>
+        <a id="adminMenu" class="nav-link" href="/admin.html" style="display:none;">
+    ⚙️ Quản trị
+</a>
+      </nav>
+      <div class="sidebar-note">Mọi thắc mắc xin liên hệ cskh để được hỗ trợ.</div>
+    </aside>
+
+    <main class="content">
+      <header class="topbar">
+        <button id="menuBtn" class="menu-btn">☰</button>
+        <div class="search-wrap">
+          <input id="searchInput" placeholder="Tìm dịch vụ TikTok, Facebook, Instagram..." />
+        </div>
+        <div id="topBalance" class="balance" style="display: none;">500.000đ</div>
+      </header>
+
+      <section id="home" class="hero">
+        <div>
+          <span class="badge">DỊCH VỤ MẠNG XÃ HỘI</span>
+          <h1>Quản lý dịch vụ mạng xã hội<br><span>uy tín và nhanh gọn</span></h1>
+          <p>Chuyên cung cấp các dịch vụ mạng xã hội chất lượng cao.</p>
+          <a class="primary-btn" href="#order">Tạo đơn ngay</a>
+        </div>
+        <div class="hero-card">
+          <div class="metric"><span>7</span><small>Dịch vụ</small></div>
+          <div class="metric"><span>4</span><small>Nền tảng</small></div>
+          <div class="metric"><span>24/7</span><small>Hỗ trợ</small></div>
+        </div>
+      </section>
+
+      <section class="platform-grid">
+        <article class="platform-card tiktok"><b><img src="https://cdn.simpleicons.org/tiktok/ffffff" alt="TikTok"></b><div><h3>TikTok</h3><p>Followers, Views</p></div></article>
+        <article class="platform-card facebook"><b><img src="https://cdn.simpleicons.org/facebook/1877F2" alt="Facebook"></b><div><h3>Facebook</h3><p>Likes, Reactions</p></div></article>
+        <article class="platform-card instagram"><b><img src="https://cdn.simpleicons.org/instagram/E4405F" alt="Instagram"></b><div><h3>Instagram</h3><p>Followers, Likes</p></div></article>
+        <article class="platform-card youtube"><b><img src="https://cdn.simpleicons.org/youtube/FF0000" alt="YouTube"></b><div><h3>YouTube</h3><p>Views</p></div></article>
+      </section>
+
+      <section id="services" class="section-card">
+        <div class="section-heading">
+          <div><span class="eyebrow">BẢNG GIÁ</span><h2>Dịch vụ nổi bật</h2></div>
+          <select id="platformFilter">
+            <option value="all">Tất cả nền tảng</option>
+            <option>TikTok</option>
+            <option>Facebook</option>
+            <option>Instagram</option>
+            <option>YouTube</option>
+          </select>
+        </div>
+        <div id="serviceGrid" class="service-grid"></div>
+      </section>
+
+      <section id="order" class="two-col">
+        <div class="section-card">
+          <div class="section-heading"><div><span class="eyebrow">ĐẶT DỊCH VỤ</span><h2>Tạo đơn mới</h2></div></div>
+          <form id="orderForm">
+            <label>Dịch vụ</label>
+            <select id="serviceSelect" required></select>
+
+            <label>Link bài viết / trang cá nhân</label>
+            <input id="linkInput" type="url" placeholder="https://..." required />
+
+            <label>Số lượng</label>
+            <input id="quantityInput" type="number" min="100" step="100" value="1000" required />
+
+            <div class="price-box">
+              <span>Tổng cộng</span>
+              <strong id="totalPrice">0đ</strong>
+            </div>
+            <button class="primary-btn full" type="submit">Tạo đơn hàng</button>
+            <p id="formMessage" class="form-message"></p>
+          </form>
+        </div>
+
+        <div id="wallet" class="section-card wallet-card" style="display: none;">
+          <span class="eyebrow">VÍ</span>
+          <h2>Số dư tài khoản</h2>
+          <div class="wallet-balance">500.000đ</div>
+          <p>Nạp tiền để trải nghiệm dịch vụ.</p>
+          <div class="bank-box"><b>Ngân hàng MBBank</b><span>03456700009999</span><span>TRAN MANH HUNG</span><small>Nội dung: nhập tên tài khoản</small><img src="qrbank.jpg" class="bank-qr" alt="QR ngân hàng"></div>
+        </div>
+      </section>
+
+      <section id="history" class="section-card">
+        <div class="section-heading"><div><span class="eyebrow">LỊCH SỬ</span><h2>Đơn hàng gần đây</h2></div></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Mã đơn</th><th>Dịch vụ</th><th>Số lượng</th><th>Thành tiền</th><th>Trạng thái</th><th>Thời gian</th><th>Thao tác</th></tr></thead>
+            <tbody id="orderTable"></tbody>
+          </table>
+        </div>
+      </section>
+      <section class="contact-section" id="contact">
+  <div class="contact-header">
+    <span class="contact-label">HỖ TRỢ KHÁCH HÀNG</span>
+    <h2>Liên hệ CSKH</h2>
+    <p>
+      Bạn gặp vấn đề khi sử dụng dịch vụ? Hãy liên hệ với chúng tôi
+      để được hỗ trợ nhanh nhất.
+    </p>
+  </div>
+
+  <div class="contact-grid">
+
+<div class="contact-card">
+    <a href="https://www.facebook.com/mohung18369" target="_blank" class="contact-icon">💬</a>
+
+    <div>
+        <h3>Messenger</h3>
+        <p>Nhắn tin trực tiếp với CSKH</p>
+        <span>Liên hệ ngay →</span>
+    </div>
+</div>
+
+  <div class="contact-card">
+    <a href="https://t.me/mohung266" target="_blank" class="contact-icon">✈️</a>
+
+    <div>
+        <h3>Telegram</h3>
+        <p>Hỗ trợ đơn hàng và tài khoản</p>
+        <span>Liên hệ ngay →</span>
+    </div>
+</div>
+
+  <div class="contact-card">
+    <a href="https://zalo.me/0965157112" target="_blank" class="contact-icon">☎️</a>
+
+    <div>
+        <h3>Zalo / Hotline</h3>
+        <p>Hỗ trợ khi có vấn đề khẩn cấp</p>
+        <span>Liên hệ ngay →</span>
+    </div>
+</div>
+
+  <div class="support-notice">
+    <div class="support-status"></div>
+    <div>
+      <strong>CSKH đang hoạt động</strong>
+      <p>Thời gian hỗ trợ: 24/7</p>
+    </div>
+  </div>
+</section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
