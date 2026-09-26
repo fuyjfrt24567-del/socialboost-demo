@@ -183,7 +183,6 @@ async function checkLogin() {
         if (!guestArea || !loggedArea) return;
 
         if (data.loggedIn) {
-          document.getElementById("wallet").style.display = "block";
 
             guestArea.style.display = "none";
             loggedArea.style.display = "flex";
@@ -202,7 +201,6 @@ async function checkLogin() {
     }
 
         } else {
-          document.getElementById("wallet").style.display = "none";
 
             guestArea.style.display = "flex";
             loggedArea.style.display = "none";
@@ -233,3 +231,32 @@ if (logoutBtn) {
 }
 
 checkLogin();
+function showSection() {
+  const hash = location.hash || "#home";
+  const sectionId = hash.substring(1);
+
+  const sections = [
+    "home",
+    "services",
+    "order",
+    "history",
+    "deposit",
+    "contact"
+  ];
+
+  sections.forEach(id => {
+    const section = document.getElementById(id);
+
+    if (section) {
+      section.style.display = id === sectionId ? "" : "none";
+    }
+  });
+
+  document.querySelectorAll(".nav-link").forEach(link => {
+    link.classList.remove("active");
+
+    if (link.getAttribute("href") === hash) {
+      link.classList.add("active");
+    }
+  });
+}
